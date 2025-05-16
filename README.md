@@ -23,3 +23,9 @@ Penggunaan URL yang sama di program publisher dan subscriber mengindikasikan bah
 ![alt text](image-1.png)
 
 Kedua gambar tersebut memperlihatkan implementasi komunikasi asinkron menggunakan RabbitMQ sebagai message broker dalam aplikasi Rust, di mana gambar pertama menunjukkan eksekusi program publisher yang mengirimkan lima data pengguna berbeda (dari 2306208855-Amir hingga 2306208855-Emir) ke dalam message queue dalam satu kali proses eksekusi, sedangkan gambar kedua menampilkan program subscriber yang sedang berjalan dan berhasil mengonsumsi pesan-pesan tersebut dari queue, kemudian memprosesnya dengan menampilkan informasi pengguna yang diterima pada console terminal sebagai konfirmasi bahwa komunikasi antar layanan telah berhasil dilakukan dengan baik.
+
+# Monitoring chart based on publisher.
+
+![alt text](image-3.png)
+
+Pada grafik kedua, terlihat adanya lonjakan (spike) yang terjadi ketika publisher dijalankan berulang kali. Lonjakan ini disebabkan oleh pengiriman pesan yang dilakukan secara bertubi-tubi ke dalam sistem message queue setiap kali publisher dijalankan. Ketika publisher mengirimkan beberapa pesan sekaligus dalam waktu singkat, beban pada sistem meningkat secara tiba-tiba, yang tercermin sebagai spike pada grafik. Hal ini menunjukkan bahwa setiap eksekusi publisher menghasilkan sejumlah pesan yang diproses oleh consumer, dan semakin sering publisher dijalankan, semakin banyak pula lonjakan yang terlihat. Lonjakan tersebut menggambarkan aktivitas pengiriman pesan yang intens dalam periode waktu yang singkat, yang kemudian diikuti oleh penurunan ketika pesan-pesan tersebut selesai diproses oleh consumer.
