@@ -16,3 +16,10 @@ Penggunaan URL yang sama di program publisher dan subscriber mengindikasikan bah
 # Running RabbitMQ as message broker.
 
 ![rabbitmq](image.png)
+
+# Sending and processing event.
+
+![alt text](image-2.png)
+![alt text](image-1.png)
+
+Kedua gambar tersebut memperlihatkan implementasi komunikasi asinkron menggunakan RabbitMQ sebagai message broker dalam aplikasi Rust, di mana gambar pertama menunjukkan eksekusi program publisher yang mengirimkan lima data pengguna berbeda (dari 2306208855-Amir hingga 2306208855-Emir) ke dalam message queue dalam satu kali proses eksekusi, sedangkan gambar kedua menampilkan program subscriber yang sedang berjalan dan berhasil mengonsumsi pesan-pesan tersebut dari queue, kemudian memprosesnya dengan menampilkan informasi pengguna yang diterima pada console terminal sebagai konfirmasi bahwa komunikasi antar layanan telah berhasil dilakukan dengan baik.
