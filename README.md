@@ -12,3 +12,7 @@ URL "amqp://guest:guest@localhost:5672" memiliki arti bahwa:
 - Port: 5672 adalah port standar yang digunakan oleh protokol AMQP.
 
 Penggunaan URL yang sama di program publisher dan subscriber mengindikasikan bahwa keduanya terhubung ke message broker yang sama. Ini memungkinkan terjadinya komunikasi antara keduanya melalui broker tersebut. Ketika publisher mengirim pesan ke broker, subscriber yang terhubung ke broker yang sama akan dapat menerima pesan tersebut. Dengan demikian, komponen publisher dan subscriber dapat berkomunikasi secara asinkron tanpa harus saling mengenal secara langsung (decoupled), hanya perlu mengetahui alamat broker yang sama.
+
+# Running RabbitMQ as message broker.
+
+![rabbitmq](image.png)
